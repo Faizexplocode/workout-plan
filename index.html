@@ -1,0 +1,1344 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Panduan UL-UL untuk Pemula</title>
+<meta name="description" content="Panduan latihan Upper-Lower untuk pemula. Jadwal, program, pemanasan, dan cara pakai alat gym.">
+<meta name="theme-color" content="#0F1B28" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#EEF3F6" media="(prefers-color-scheme: light)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💪</text></svg>">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
+<style>
+/* ═══════════════════════════════════════════
+   CSS VARIABLES & THEME
+   ═══════════════════════════════════════════ */
+:root {
+  --bg: #F0F4F8;
+  --surf: #FFFFFF;
+  --surf2: #F7F9FB;
+  --ink: #1A2B3D;
+  --mute: #6B7F92;
+  --line: #E2E8F0;
+  --gym: #0D9488;
+  --gym-soft: #CCFBF1;
+  --run: #F59E0B;
+  --run-soft: #FEF3C7;
+  --rest: #94A3B8;
+  --danger: #EF4444;
+  --danger-soft: #FEE2E2;
+  --chip: #E2F5F3;
+  --hdr: rgba(240,244,248,.85);
+  --shadow-sm: 0 1px 3px rgba(0,0,0,.06);
+  --shadow-md: 0 4px 16px rgba(0,0,0,.08);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,.12);
+  --shadow-glow: 0 0 24px rgba(13,148,136,.15);
+  --radius: 16px;
+  --radius-sm: 10px;
+  --transition: .3s cubic-bezier(.4,0,.2,1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0C1521;
+    --surf: #162032;
+    --surf2: #1A2740;
+    --ink: #E8EEF5;
+    --mute: #8FA4B8;
+    --line: #2A3B52;
+    --gym: #2DD4BF;
+    --gym-soft: #0D3D38;
+    --run: #FBBF24;
+    --run-soft: #422006;
+    --rest: #64748B;
+    --danger: #F87171;
+    --danger-soft: #450A0A;
+    --chip: #0F3A36;
+    --hdr: rgba(12,21,33,.85);
+    --shadow-sm: 0 1px 3px rgba(0,0,0,.2);
+    --shadow-md: 0 4px 16px rgba(0,0,0,.3);
+    --shadow-lg: 0 8px 32px rgba(0,0,0,.4);
+    --shadow-glow: 0 0 24px rgba(45,212,191,.12);
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #0C1521;
+  --surf: #162032;
+  --surf2: #1A2740;
+  --ink: #E8EEF5;
+  --mute: #8FA4B8;
+  --line: #2A3B52;
+  --gym: #2DD4BF;
+  --gym-soft: #0D3D38;
+  --run: #FBBF24;
+  --run-soft: #422006;
+  --rest: #64748B;
+  --danger: #F87171;
+  --danger-soft: #450A0A;
+  --chip: #0F3A36;
+  --hdr: rgba(12,21,33,.85);
+  --shadow-sm: 0 1px 3px rgba(0,0,0,.2);
+  --shadow-md: 0 4px 16px rgba(0,0,0,.3);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,.4);
+  --shadow-glow: 0 0 24px rgba(45,212,191,.12);
+}
+
+/* ═══════════════════════════════════════════
+   RESET & BASE
+   ═══════════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 72px); scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 16px/1.6 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ═══════════════════════════════════════════
+   HERO HEADER
+   ═══════════════════════════════════════════ */
+.hero {
+  position: relative;
+  padding: calc(env(safe-area-inset-top, 0px) + 100px) 20px 60px;
+  text-align: center;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--gym) 0%, #065F46 50%, #064E3B 100%);
+  color: #fff;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 50%, rgba(255,255,255,.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255,255,255,.05) 0%, transparent 50%);
+  pointer-events: none;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: var(--bg);
+  clip-path: ellipse(55% 100% at 50% 100%);
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255,255,255,.15);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: 99px;
+  padding: 6px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  animation: fadeSlideDown .8s ease-out;
+}
+
+.hero h1 {
+  font-size: clamp(32px, 8vw, 56px);
+  font-weight: 900;
+  letter-spacing: -1.5px;
+  line-height: 1.05;
+  margin: 0 0 16px;
+  animation: fadeSlideDown .8s ease-out .1s both;
+}
+
+.hero-sub {
+  font-size: 16px;
+  line-height: 1.6;
+  opacity: .85;
+  max-width: 540px;
+  margin: 0 auto;
+  animation: fadeSlideDown .8s ease-out .2s both;
+}
+
+/* Animated heartbeat SVG */
+.hero-heartbeat {
+  display: block;
+  width: min(320px, 80%);
+  margin: 24px auto 0;
+  height: 40px;
+  animation: fadeSlideDown .8s ease-out .3s both;
+}
+.hero-heartbeat path {
+  fill: none;
+  stroke: rgba(255,255,255,.6);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 500;
+  stroke-dashoffset: 500;
+  animation: drawLine 2.5s ease-out .6s forwards;
+}
+
+/* Floating particles */
+.particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: rgba(255,255,255,.3);
+  border-radius: 50%;
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) scale(1); opacity: .3; }
+  50% { transform: translateY(-30px) scale(1.5); opacity: .6; }
+}
+
+/* ═══════════════════════════════════════════
+   NAV
+   ═══════════════════════════════════════════ */
+nav {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 100;
+  background: var(--hdr);
+  backdrop-filter: blur(16px) saturate(1.8);
+  -webkit-backdrop-filter: blur(16px) saturate(1.8);
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding: 10px 16px;
+  scrollbar-width: none;
+  transition: box-shadow var(--transition);
+}
+nav::-webkit-scrollbar { display: none; }
+nav.scrolled { box-shadow: var(--shadow-md); }
+
+nav a {
+  flex: none;
+  padding: 8px 16px;
+  border-radius: 99px;
+  background: transparent;
+  color: var(--mute);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all var(--transition);
+  white-space: nowrap;
+  position: relative;
+}
+nav a:hover { color: var(--ink); background: var(--chip); }
+nav a.active {
+  color: #fff;
+  background: var(--gym);
+  box-shadow: 0 2px 8px rgba(13,148,136,.3);
+}
+
+/* ═══════════════════════════════════════════
+   MAIN CONTENT
+   ═══════════════════════════════════════════ */
+main {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 16px 80px;
+}
+
+/* Section headers */
+.section-header {
+  margin: 48px 0 20px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all .6s cubic-bezier(.4,0,.2,1);
+}
+.section-header.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.section-header h2 {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -.5px;
+  margin: 0 0 4px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.section-header h2 .icon {
+  display: inline-flex;
+  width: 36px;
+  height: 36px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  font-size: 18px;
+  background: var(--gym-soft);
+}
+.section-header .subtitle {
+  color: var(--mute);
+  font-size: 15px;
+  margin: 4px 0 0;
+}
+
+/* ═══════════════════════════════════════════
+   CARDS
+   ═══════════════════════════════════════════ */
+.card {
+  background: var(--surf);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 20px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition);
+  opacity: 0;
+  transform: translateY(16px);
+}
+.card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+.card.visible:hover {
+  transform: translateY(-3px);
+}
+
+.card h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0 0 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ═══════════════════════════════════════════
+   WEEKLY SCHEDULE
+   ═══════════════════════════════════════════ */
+.week { display: grid; gap: 8px; }
+
+.day {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 12px;
+  align-items: center;
+  background: var(--surf);
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--rest);
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition);
+  opacity: 0;
+  transform: translateX(-20px);
+  cursor: default;
+}
+.day.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+.day:hover {
+  transform: translateX(4px);
+  box-shadow: var(--shadow-md);
+}
+.day.visible:hover {
+  transform: translateX(4px);
+}
+
+.day.g { border-left-color: var(--gym); }
+.day.r { border-left-color: var(--run); }
+.day.gr { border-image: linear-gradient(var(--gym) 50%, var(--run) 50%) 1; border-left-width: 5px; }
+
+.day b {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -.3px;
+}
+.day-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 99px;
+  background: var(--chip);
+  transition: transform var(--transition);
+}
+.tag:hover { transform: scale(1.05); }
+.tag.g { background: var(--gym); color: #fff; }
+.tag.r { background: var(--run); color: #1b1500; }
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .tag.g { color: #042f2e; }
+}
+:root[data-theme="dark"] .tag.g { color: #042f2e; }
+
+/* ═══════════════════════════════════════════
+   NOTE & WARNING BOXES
+   ═══════════════════════════════════════════ */
+.note {
+  position: relative;
+  border-left: 4px solid var(--run);
+  background: var(--run-soft);
+  padding: 16px 16px 16px 20px;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  margin: 16px 0;
+  font-size: 15px;
+  line-height: 1.6;
+}
+.note::before {
+  content: '⚠️';
+  position: absolute;
+  left: -14px;
+  top: 12px;
+  background: var(--bg);
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+}
+
+.warn-box {
+  background: var(--danger-soft);
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  font-size: 14px;
+  margin-top: 12px;
+  border: 1px solid var(--danger);
+  border-left: 4px solid var(--danger);
+}
+.warn-box b { color: var(--danger); }
+
+/* ═══════════════════════════════════════════
+   PROGRAM TABLES
+   ═══════════════════════════════════════════ */
+.cols { display: grid; gap: 14px; }
+@media (min-width: 640px) { .cols { grid-template-columns: 1fr 1fr; } }
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 14px;
+}
+th {
+  text-align: left;
+  padding: 8px 4px;
+  font-weight: 700;
+  color: var(--mute);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  border-bottom: 2px solid var(--line);
+}
+td {
+  text-align: left;
+  padding: 10px 4px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: middle;
+}
+td:last-child, th:last-child {
+  text-align: right;
+  white-space: nowrap;
+  font-weight: 700;
+  color: var(--gym);
+}
+tr { transition: background var(--transition); }
+tr:hover { background: var(--surf2); }
+
+/* ═══════════════════════════════════════════
+   LISTS
+   ═══════════════════════════════════════════ */
+ul.s { margin: 8px 0 0; padding-left: 0; list-style: none; }
+ul.s li {
+  position: relative;
+  padding: 6px 0 6px 24px;
+  font-size: 15px;
+}
+ul.s li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 14px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--gym);
+  opacity: .6;
+}
+.card:nth-child(2) ul.s li::before { background: var(--danger); }
+
+/* ═══════════════════════════════════════════
+   EQUIPMENT / EXERCISE CARDS
+   ═══════════════════════════════════════════ */
+.eq-card {
+  background: var(--surf);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 16px;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition);
+  opacity: 0;
+  transform: translateY(20px);
+}
+.eq-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.eq-card:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+.eq-card .eq-top {
+  border-top: 4px solid var(--gym);
+  padding: 20px;
+}
+
+.eq-card h3 {
+  font-size: 20px;
+  font-weight: 800;
+  margin: 0 0 12px;
+  letter-spacing: -.3px;
+}
+
+/* SVG animation container */
+.fig {
+  background: var(--surf2);
+  border-radius: var(--radius-sm);
+  margin: 0 0 16px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  transition: all var(--transition);
+}
+.fig:hover { border-color: var(--gym); box-shadow: var(--shadow-glow); }
+.fig.p { opacity: .8; }
+.fig.p::after {
+  content: '⏸ Dijeda';
+  position: absolute;
+  right: 12px;
+  top: 10px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--gym);
+  background: var(--chip);
+  padding: 2px 10px;
+  border-radius: 99px;
+}
+
+.an {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 260px;
+}
+.an path, .an line { fill: none; stroke: var(--ink); stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+.an .q { fill: none; stroke: var(--mute); stroke-width: 2.5; }
+.an .c { stroke: var(--gym); stroke-width: 2; stroke-dasharray: 4 3; }
+.an .h { fill: var(--chip); stroke: var(--ink); stroke-width: 3; }
+.an .o { fill: var(--run); stroke: var(--ink); stroke-width: 2; }
+.an .f { fill: var(--mute); opacity: .2; stroke: none; }
+
+.hint {
+  font-size: 12px;
+  color: var(--mute);
+  text-align: center;
+  padding: 6px 0 10px;
+}
+
+/* Phase label in animation */
+.ph {
+  position: absolute;
+  left: 14px;
+  top: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--gym);
+  max-width: 60%;
+  background: var(--chip);
+  padding: 2px 10px;
+  border-radius: 99px;
+}
+
+/* Equipment & muscle tags */
+.eq-info {
+  font-size: 14px;
+  background: var(--surf2);
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  margin-bottom: 12px;
+  border: 1px solid var(--line);
+}
+.eq-info b { color: var(--gym); }
+
+.muscle-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+.muscle-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 99px;
+  background: var(--gym-soft);
+  color: var(--gym);
+}
+.muscle-tag.secondary {
+  background: var(--surf2);
+  color: var(--mute);
+}
+
+/* Exercise steps */
+.eq-card ol {
+  margin: 12px 0;
+  padding-left: 0;
+  counter-reset: step;
+  list-style: none;
+}
+.eq-card ol li {
+  position: relative;
+  padding: 10px 0 10px 44px;
+  border-bottom: 1px solid var(--line);
+  font-size: 14px;
+  line-height: 1.5;
+  counter-increment: step;
+}
+.eq-card ol li:last-child { border-bottom: none; }
+.eq-card ol li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--gym-soft);
+  color: var(--gym);
+  font-weight: 800;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Speed control */
+.speed-btn {
+  font: 600 14px 'Inter', sans-serif;
+  background: var(--chip);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 99px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: all var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.speed-btn:hover { background: var(--gym); color: #fff; border-color: var(--gym); }
+.speed-btn:active { transform: scale(.97); }
+
+/* ═══════════════════════════════════════════
+   PROGRESS CARDS
+   ═══════════════════════════════════════════ */
+.progress-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  margin-right: 8px;
+}
+.progress-icon.gym { background: var(--gym-soft); }
+.progress-icon.run { background: var(--run-soft); }
+.progress-icon.rest { background: var(--chip); }
+.progress-icon.warn { background: var(--danger-soft); }
+
+/* ═══════════════════════════════════════════
+   THEME TOGGLE
+   ═══════════════════════════════════════════ */
+.theme-toggle {
+  position: fixed;
+  bottom: calc(env(safe-area-inset-bottom, 0px) + 20px);
+  right: 20px;
+  z-index: 999;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: var(--surf);
+  color: var(--ink);
+  box-shadow: var(--shadow-md);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  transition: all var(--transition);
+  backdrop-filter: blur(10px);
+}
+.theme-toggle:hover { transform: scale(1.1) rotate(15deg); box-shadow: var(--shadow-lg); }
+.theme-toggle:active { transform: scale(.95); }
+
+/* ═══════════════════════════════════════════
+   SCROLL PROGRESS BAR
+   ═══════════════════════════════════════════ */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gym), var(--run));
+  z-index: 1000;
+  width: 0%;
+  transition: width .1s linear;
+}
+
+/* ═══════════════════════════════════════════
+   BACK TO TOP
+   ═══════════════════════════════════════════ */
+.back-to-top {
+  position: fixed;
+  bottom: calc(env(safe-area-inset-bottom, 0px) + 76px);
+  right: 20px;
+  z-index: 999;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: var(--surf);
+  color: var(--ink);
+  box-shadow: var(--shadow-md);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  transition: all var(--transition);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+}
+.back-to-top.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+.back-to-top:hover { transform: scale(1.1) translateY(-2px); }
+
+/* ═══════════════════════════════════════════
+   FOOTER
+   ═══════════════════════════════════════════ */
+footer {
+  text-align: center;
+  padding: 32px 16px calc(env(safe-area-inset-bottom, 0px) + 32px);
+  color: var(--mute);
+  font-size: 13px;
+  border-top: 1px solid var(--line);
+}
+footer a { color: var(--gym); text-decoration: none; }
+
+/* ═══════════════════════════════════════════
+   ANIMATIONS
+   ═══════════════════════════════════════════ */
+@keyframes fadeSlideDown {
+  from { opacity: 0; transform: translateY(-15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes drawLine {
+  to { stroke-dashoffset: 0; }
+}
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(13,148,136,.3); }
+  50% { box-shadow: 0 0 0 8px rgba(13,148,136,0); }
+}
+
+/* ═══════════════════════════════════════════
+   REDUCED MOTION
+   ═══════════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01s !important; transition-duration: .01s !important; }
+  .hero-heartbeat path { stroke-dashoffset: 0 !important; animation: none !important; }
+  .card:hover, .day:hover, .eq-card:hover { transform: none !important; }
+  .particle { animation: none !important; }
+}
+
+/* ═══════════════════════════════════════════
+   INSTALL PROMPT (PWA)
+   ═══════════════════════════════════════════ */
+.install-banner {
+  display: none;
+  position: fixed;
+  bottom: calc(env(safe-area-inset-bottom, 0px) + 20px);
+  left: 16px;
+  right: 80px;
+  z-index: 998;
+  background: var(--surf);
+  border: 1px solid var(--gym);
+  border-radius: var(--radius);
+  padding: 14px 20px;
+  box-shadow: var(--shadow-lg);
+  animation: fadeSlideDown .4s ease-out;
+  align-items: center;
+  gap: 12px;
+}
+.install-banner.show { display: flex; }
+.install-banner p { margin: 0; font-size: 14px; font-weight: 600; flex: 1; }
+.install-banner button {
+  font: 700 14px 'Inter', sans-serif;
+  background: var(--gym);
+  color: #fff;
+  border: none;
+  border-radius: 99px;
+  padding: 8px 20px;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+.install-banner button:hover { opacity: .85; }
+.install-banner .dismiss {
+  background: none;
+  color: var(--mute);
+  padding: 4px;
+  font-size: 20px;
+  line-height: 1;
+}
+</style>
+</head>
+<body>
+
+<!-- Scroll progress bar -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- Hero Section -->
+<div class="hero">
+  <div class="particles" id="particles"></div>
+  <div class="hero-badge">🏋️ Program Pemula</div>
+  <h1>Panduan UL-UL<br>untuk Pemula</h1>
+  <p class="hero-sub">Versi ringan: 4 hari gym/kardio rendah dampak tanpa lari, selama lutut kanan dipulihkan. Periksakan ke dokter ortopedi atau fisioterapis sebelum menambah beban.</p>
+  <svg class="hero-heartbeat" viewBox="0 0 320 40" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 22H100l8-14 14 28 12-24 8 10H320"/>
+  </svg>
+</div>
+
+<!-- Navigation -->
+<nav id="topNav">
+  <a href="#jadwal" class="active">📅 Jadwal</a>
+  <a href="#program">📋 Program</a>
+  <a href="#warmup">🔥 Pemanasan</a>
+  <a href="#alat">🏋️ Alat Gym</a>
+  <a href="#tips">📈 Progres</a>
+</nav>
+
+<!-- Main Content -->
+<main>
+
+  <!-- JADWAL -->
+  <div class="section-header" id="jadwal">
+    <h2><span class="icon">📅</span> Jadwal Mingguan</h2>
+    <p class="subtitle">Upper dikerjakan 2 set per gerakan dulu</p>
+  </div>
+  <div class="week" id="week"></div>
+  <div class="note">Tidak ada lari dan tidak ada latihan kaki berbeban selama pemulihan. Jalan santai dan renang hanya dilakukan kalau lutut tidak nyeri dan tidak bengkak setelahnya.</div>
+
+  <!-- PROGRAM -->
+  <div class="section-header" id="program">
+    <h2><span class="icon">📋</span> Program Ringan</h2>
+    <p class="subtitle">Semua gerakan 2-3 set, berhenti 2-3 rep sebelum gagal. Istirahat antar set 1,5-3 menit.</p>
+  </div>
+  <div class="cols" id="prog"></div>
+
+  <div class="cols">
+    <div class="card">
+      <h3>🚫 Hindari dulu</h3>
+      <ul class="s">
+        <li>Squat dalam, lunges, leg press dengan lutut menekuk dalam</li>
+        <li>Gerakan memutar saat kaki menapak (pivot)</li>
+        <li>Lari, termasuk speed session</li>
+        <li>Renang gaya dada (tendangannya memutar lutut)</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>🛑 Berhenti kalau</h3>
+      <ul class="s">
+        <li>Nyeri lebih dari 3 dari 10</li>
+        <li>Lutut bengkak atau terasa mengganjal</li>
+        <li>Lutut terkunci atau terasa mau lepas</li>
+        <li>Nyeri malam hari: segera periksa</li>
+      </ul>
+    </div>
+  </div>
+  <div class="note">Kembali lari nanti lewat jalan-lari bertahap, bukan langsung 10-15 km, dan setelah ada izin dari dokter atau fisioterapis.</div>
+
+  <!-- PEMANASAN -->
+  <div class="section-header" id="warmup">
+    <h2><span class="icon">🔥</span> Pemanasan & Pendinginan</h2>
+  </div>
+  <div class="cols">
+    <div class="card">
+      <h3>⬆️ Sebelum gym (5-10 menit)</h3>
+      <ul class="s">
+        <li>Kardio ringan 3-5 menit</li>
+        <li>Upper: arm circle, band pull-apart, push-up ringan</li>
+        <li>Lower: bodyweight squat, hip bridge, leg swing</li>
+        <li>1-2 set ringan gerakan pertama (50-60% beban)</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>🏃 Sebelum lari (nanti, setelah lutut pulih)</h3>
+      <ul class="s">
+        <li>Jalan cepat lalu jogging sangat pelan</li>
+        <li>Leg swing, high knees, butt kicks, lunge + putar badan</li>
+        <li>Sebelum speed: 3-4x strides 15-20 detik</li>
+      </ul>
+    </div>
+  </div>
+  <div class="card">
+    <h3>❄️ Pendinginan</h3>
+    <p style="margin:0;font-size:15px;">Jalan santai 5 menit, lalu peregangan 30 detik per otot (betis, paha depan dan belakang, pinggul) saat badan masih hangat.</p>
+  </div>
+
+  <!-- ALAT GYM -->
+  <div class="section-header" id="alat">
+    <h2><span class="icon">🏋️</span> Cara Pakai Alat Gym</h2>
+    <p class="subtitle">Mulai dengan beban ringan sampai gerakannya terasa benar. Ketuk animasi untuk jeda/lanjut.</p>
+  </div>
+  <button class="speed-btn" id="speedBtn">⚡ Mode lambat: mati</button>
+  <div id="eq"></div>
+
+  <!-- TIPS -->
+  <div class="section-header" id="tips">
+    <h2><span class="icon">📈</span> Progres & Pemulihan</h2>
+  </div>
+  <div class="cols">
+    <div class="card">
+      <h3><span class="progress-icon gym">🏋️</span> Naik beban</h3>
+      <ul class="s">
+        <li>Semua set dan rep tercapai dengan form bagus 2 sesi berturut-turut: naik 1-2,5 kg</li>
+        <li>Catat beban tiap sesi di HP</li>
+        <li>Deload tiap 4-6 minggu: volume gym dan lari turun 30-40%</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3><span class="progress-icon run">🏃</span> Lari (nanti, setelah lutut pulih)</h3>
+      <ul class="s">
+        <li>80% easy run (bisa ngobrol)</li>
+        <li>Naik mileage maksimal 10% per minggu</li>
+        <li>Long run sekitar 30-40% dari total mingguan</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3><span class="progress-icon rest">😴</span> Pemulihan</h3>
+      <ul class="s">
+        <li>Tidur 7-9 jam</li>
+        <li>Protein sekitar 1,6 g/kg per hari, plus karbo cukup sebelum long run</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3><span class="progress-icon warn">⚠️</span> Mundur dulu kalau</h3>
+      <ul class="s">
+        <li>Nyeri tajam (bukan pegal)</li>
+        <li>Pegal kaki lebih dari 3 hari</li>
+        <li>Performa turun terus</li>
+      </ul>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <p>💪 Panduan UL-UL untuk Pemula &middot; <a href="#jadwal">Kembali ke atas</a></p>
+  <p style="margin-top:8px;">Dibuat dengan ❤️ untuk pemulihan lutut yang aman</p>
+</footer>
+
+<!-- Theme Toggle -->
+<button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">🌙</button>
+
+<!-- Back to Top -->
+<button class="back-to-top" id="backToTop" aria-label="Kembali ke atas">↑</button>
+
+<!-- PWA Install Prompt -->
+<div class="install-banner" id="installBanner">
+  <p>📲 Install sebagai app untuk akses cepat!</p>
+  <button id="installBtn">Install</button>
+  <button class="dismiss" id="dismissInstall">×</button>
+</div>
+
+<script>
+/* ═══════════════════════════════════════════
+   DATA
+   ═══════════════════════════════════════════ */
+var W = [
+  ["Senin","g",[["g","Upper A"]]],
+  ["Selasa","gr",[["g","Pinggul + core"],["r","Jalan santai"]]],
+  ["Rabu","",[["","Rest 🧘"]]],
+  ["Kamis","g",[["g","Upper B"]]],
+  ["Jumat","gr",[["r","Renang / sepeda statis"],["g","Leg curl ringan"]]],
+  ["Sabtu","",[["","Rest 🧘"]]],
+  ["Minggu","r",[["r","Jalan santai (opsional)"]]]
+];
+
+var P = [
+  ["Upper A (Senin)",[["Chest press machine","3×8-10"],["Seated cable row","3×10-12"],["Overhead press dumbbell","3×8-10"],["Lat pulldown","3×10-12"],["Triceps pushdown","2×12"],["Dumbbell curl","2×12"]]],
+  ["Pinggul + core (Selasa)",[["Glute bridge","3×12"],["Clamshell","2×15/sisi"],["Side-lying leg raise","2×12/sisi"],["Dead bug","3×8/sisi"],["Plank","3×20-30 dtk"]]],
+  ["Upper B (Kamis)",[["Push-up (lutut boleh di lantai)","3×8-12"],["Lat pulldown grip beda","3×8-10"],["Lateral raise","3×12-15"],["Dumbbell row","3×10-12"],["Face pull","2×15"],["Hammer curl + triceps ext.","2×12"]]],
+  ["Kardio ringan (Jumat)",[["Renang gaya bebas + pull buoy","20-30 mnt"],["Sepeda statis resistansi rendah","15-20 mnt"],["Leg curl ringan (kalau tidak nyeri)","2×12"],["Seated calf raise","2×15"]]]
+];
+
+var E = [
+  ["Chest press machine",["Pectoralis (dada)","Deltoid depan","Triceps"],["utama","bantu","bantu"],["Atur tinggi jok sampai handle sejajar tengah dada.","Duduk tegak, punggung menempel sandaran, bahu ditarik ke belakang dan bawah.","Dorong handle ke depan sampai lengan hampir lurus, jangan kunci siku.","Kembalikan pelan 2-3 detik sampai dada terasa meregang ringan."],"Bahu terangkat ke telinga dan punggung terlepas dari sandaran."],
+  ["Lat pulldown",["Latissimus (punggung)","Biceps","Trapezius bawah"],["utama","bantu","bantu"],["Atur pad paha supaya paha terkunci, pegang bar sedikit lebih lebar dari bahu.","Condong sedikit ke belakang, dada dibusungkan.","Tarik bar ke atas dada dengan menarik siku ke bawah dan ke samping.","Naikkan pelan sampai lengan lurus, tanpa bahu terangkat."],"Menarik dengan badan mengayun dan bar ditarik ke belakang leher."],
+  ["Seated cable row",["Latissimus & Rhomboid","Trapezius","Biceps"],["utama","bantu","bantu"],["Duduk, kaki di footplate, lutut sedikit menekuk, punggung lurus.","Tarik handle ke arah perut bawah, siku menempel dekat badan.","Jepit tulang belikat di akhir tarikan, tahan 1 detik.","Kembalikan pelan sampai lengan lurus."],"Badan terlalu bergoyang ke depan dan belakang."],
+  ["Overhead press dumbbell",["Deltoid (bahu)","Triceps"],["utama","bantu"],["Duduk dengan sandaran atau berdiri, dumbbell setinggi bahu, telapak ke depan.","Kencangkan perut dan bokong, jangan melengkungkan punggung bawah.","Dorong lurus ke atas sampai lengan hampir lurus di atas kepala.","Turunkan pelan sampai setinggi telinga."],"Punggung bawah melengkung berlebihan karena beban terlalu berat."],
+  ["Leg press",["Quadriceps (paha depan)","Gluteus (bokong)"],["utama","bantu"],["Duduk, punggung dan bokong menempel penuh ke sandaran, kaki selebar bahu di tengah plat.","Lepas pengunci, turunkan beban sampai lutut sekitar 90°.","Dorong lewat telapak kaki (terutama tumit) tanpa mengunci lutut di atas.","Bokong tidak boleh terangkat dari jok saat turun."],"Menurunkan terlalu dalam sampai pinggul terangkat, dan lutut mengunci keras."],
+  ["Goblet squat",["Quadriceps (paha)","Gluteus (bokong)"],["utama","bantu"],["Pegang satu dumbbell di depan dada dengan kedua tangan.","Kaki selebar bahu, ujung kaki sedikit keluar.","Duduk ke bawah dengan dada tegak, lutut searah jari kaki.","Dorong lewat tumit untuk berdiri."],"Lutut masuk ke dalam dan tumit terangkat."],
+  ["Romanian deadlift",["Hamstring (paha belakang)","Gluteus (bokong)","Erector spinae"],["utama","bantu","bantu"],["Berdiri, dumbbell di depan paha, lutut sedikit menekuk dan dikunci di posisi itu.","Dorong pinggul ke belakang, dumbbell meluncur dekat kaki.","Turun sampai terasa tarikan di paha belakang (biasanya setinggi lutut).","Dorong pinggul ke depan untuk berdiri, punggung tetap lurus."],"Punggung membulat dan jongkok seperti squat."],
+  ["Leg curl",["Hamstring (paha belakang)","Betis (gastrocnemius)"],["utama","bantu"],["Atur pad supaya tepat di atas tumit dan lutut sejajar poros mesin.","Tarik tumit ke arah bokong dengan gerakan terkontrol.","Tahan 1 detik, turunkan 2-3 detik.","Pinggul tetap menempel ke bangku."],"Pinggul terangkat dan beban dihentakkan."]
+];
+
+var X = [
+  [[48,72,62,74,110,74,132,64,140,108,58,78,62,60],[48,72,62,74,110,74,132,64,140,108,64,52,65,32],'<rect class="q" x="40" y="78" width="110" height="8" rx="3"/><path class="q" d="M60 86v22M130 86v22"/>','db',0,"Mesin chest press: kursi dengan sandaran, dua handle di depan dada, tumpukan beban di belakang."],
+  [[95,26,96,40,100,82,128,82,130,108,106,22,110,8],[95,26,96,40,100,82,128,82,130,108,90,56,110,44],'<rect class="q" x="86" y="84" width="30" height="6"/><path class="q" d="M101 90v18M132 4v104M112 4H132M108 74h16"/>','cable',[112,4],"Mesin kabel tinggi: bar panjang di atas dan bantalan penahan paha."],
+  [[60,30,60,44,60,84,95,78,125,90,90,58,120,64],[60,30,60,44,60,84,95,78,125,90,46,62,84,62],'<rect class="q" x="44" y="86" width="34" height="6"/><path class="q" d="M60 92v16M130 80v28M172 52v56"/>','cable',[172,64],"Mesin kabel rendah: kursi, tumpuan kaki, handle segitiga atau bar pendek."],
+  [[80,32,80,46,78,84,106,82,108,108,88,62,84,44],[80,32,80,46,78,84,106,82,108,108,84,26,82,8],'<rect class="q" x="62" y="86" width="34" height="6"/><path class="q" d="M68 88L72 34M79 92v16"/>','db',0,"Bangku dengan sandaran tegak dan dumbbell dari rak."],
+  [[30,92,42,86,66,74,88,50,110,70,56,80,62,84],[30,92,42,86,66,74,93,52,118,34,56,80,62,84],'<path class="q" d="M26 104L72 78M96 102L136 22"/>','sled',0,"Mesin dudukan miring dengan plat besar di depan kaki. Atur posisi jok dulu."],
+  [[100,14,100,28,100,62,103,86,100,108,108,44,110,32],[96,46,92,58,74,88,104,80,100,108,106,66,108,56],'','db',0,"Hanya satu dumbbell (mulai 6-10 kg). Tanpa mesin."],
+  [[100,14,100,28,100,62,102,86,100,108,104,46,106,64],[74,50,84,52,116,62,112,86,104,108,88,66,90,84],'','db',0,"Sepasang dumbbell dari rak. Tanpa mesin."],
+  [[30,68,44,72,95,72,125,72,152,74,40,84,52,86],[30,68,44,72,95,72,125,72,118,42,40,84,52,86],'<rect class="q" x="36" y="80" width="96" height="7" rx="3"/><path class="q" d="M50 87v21M120 87v21"/>','pad',0,"Mesin leg curl posisi telungkup, bantalan di atas tumit."]
+];
+
+var Z = [
+  {A:[80,38,80,52,80,82,104,106,90,56],B:[80,38,80,52,80,82,104,106,108,54],ks:-1,es:1,m:'T,UA,SD',e:1,o:'cable',an:[66,54],eq:'<rect class="f" x="66" y="88" width="30" height="6" rx="2"/><path class="q" d="M81 94v14"/><path class="q" d="M70 88L68 36" style="stroke-width:5"/><rect class="f" x="50" y="30" width="12" height="78"/><circle class="q" cx="66" cy="54" r="3"/>',l:["Dorong handle ke depan","Kembali pelan, dada terbuka"]},
+  {A:[96,38,97,52,100,82,128,106,110,24],B:[96,38,97,52,100,82,128,106,104,46],ks:-1,es:1,m:'T,UA',e:1,o:'cable',an:[112,6],eq:'<rect class="f" x="86" y="88" width="28" height="6" rx="2"/><path class="q" d="M100 94v14M108 74h20" style="stroke-width:5"/><rect class="f" x="132" y="4" width="16" height="104"/><circle class="q" cx="112" cy="6" r="4"/><path class="q" d="M116 6H132"/>',l:["Tarik bar ke dada, siku ke bawah","Naik pelan, lengan lurus"]},
+  {A:[61,38,60,52,58,82,100,98,88,60],B:[61,38,60,52,58,82,100,98,66,66],ks:-1,es:1,m:'T,UA',e:1,o:'cable',an:[168,66],eq:'<rect class="f" x="44" y="88" width="30" height="6" rx="2"/><path class="q" d="M58 94v14M108 78v30"/><rect class="f" x="168" y="30" width="16" height="78"/><circle class="q" cx="168" cy="66" r="4"/>',l:["Tarik, jepit tulang belikat","Kembali pelan, punggung tetap tegak"]},
+  {A:[80,38,80,52,80,82,104,106,84,46],B:[80,38,80,52,80,82,104,106,84,22],ks:-1,es:1,m:'SD,UA',e:1,o:'db',eq:'<rect class="f" x="66" y="88" width="30" height="6" rx="2"/><path class="q" d="M81 94v14"/><path class="q" d="M70 88L68 36" style="stroke-width:5"/>',l:["Dorong lurus ke atas","Turun pelan sampai sejajar telinga"]},
+  {A:[33,92,44,86,70,71,96,56,70,80],B:[33,92,44,86,70,71,112,38,70,80],ks:-1,es:-1,m:'TH,H',e:1,o:'sled',eq:'<path class="q" d="M26 102L66 80" style="stroke-width:6"/><path class="q" d="M62 104L132 22M20 108"/>',l:["Dorong lewat tumit","Tekuk pelan, jangan kunci lutut"]},
+  {A:[98,16,98,30,98,60,100,106,110,34],B:[102,47,95,59,81,85,100,106,108,56],ks:-1,es:1,m:'TH,H',e:2,o:'db',eq:'',l:["Turun, dada tetap tegak","Berdiri, dorong lewat tumit"]},
+  {A:[98,16,98,30,98,60,100,106,98,66],B:[125,47,112,52,84,64,100,106,114,80],ks:-1,es:1,m:'TH,H,T',e:2,o:'db',eq:'',l:["Dorong pinggul ke belakang","Berdiri, dorong pinggul ke depan"]},
+  {A:[37,70,50,72,80,72,126,74,38,80],B:[37,70,50,72,80,72,92,48,38,80],ks:1,es:-1,m:'TH',e:1,o:'pad',eq:'<rect class="f" x="36" y="80" width="86" height="7" rx="3"/><path class="q" d="M48 87v21M110 87v21"/>',l:["Tekuk, tarik tumit ke bokong","Turun pelan 2-3 detik"]}
+];
+
+var MM = [
+  [['Pectoralis (dada)','T',.78,13,9,1,'u'],['Deltoid depan','UA',.14,10,8,1,'b'],['Triceps','UA',.6,11,5.5,-1,'b']],
+  [['Latissimus (punggung lebar)','T',.55,18,9,-1,'u'],['Biceps','UA',.5,10,5.5,1,'b'],['Trapezius bawah','T',.85,10,7,-1,'b']],
+  [['Latissimus dan rhomboid','T',.6,17,9,-1,'u'],['Trapezius','T',.9,10,7,-1,'u'],['Biceps','UA',.5,10,5.5,1,'b']],
+  [['Deltoid (bahu)','UA',.12,11,9,1,'u'],['Triceps','UA',.6,11,5.5,-1,'b']],
+  [['Quadriceps (paha depan)','TH',.5,20,10,1,'u'],['Gluteus (bokong)','TH',.1,11,11,-1,'b']],
+  [['Quadriceps (paha depan)','TH',.5,20,10,1,'u'],['Gluteus (bokong)','TH',.1,11,11,-1,'u']],
+  [['Hamstring (paha belakang)','TH',.5,20,8,-1,'u'],['Gluteus (bokong)','TH',.1,11,11,-1,'u'],['Erector spinae (punggung bawah)','T',.35,16,7,-1,'b']],
+  [['Hamstring (paha belakang)','TH',.5,20,8,-1,'u'],['Betis (gastrocnemius)','SH',.35,12,7,-1,'b']]
+];
+
+/* ═══════════════════════════════════════════
+   BUILD DOM
+   ═══════════════════════════════════════════ */
+
+// Weekly schedule
+document.getElementById("week").innerHTML = W.map(function(d) {
+  return '<div class="day ' + d[1] + '"><b>' + d[0] + '</b><div class="day-tags">' +
+    d[2].map(function(t) { return '<span class="tag ' + t[0] + '">' + t[1] + '</span>'; }).join("") +
+    '</div></div>';
+}).join("");
+
+// Program cards
+document.getElementById("prog").innerHTML = P.map(function(p) {
+  return '<div class="card"><h3>' + p[0] + '</h3><table><tr><th>Gerakan</th><th>Set × rep</th></tr>' +
+    p[1].map(function(r) { return '<tr><td>' + r[0] + '</td><td>' + r[1] + '</td></tr>'; }).join("") +
+    '</table></div>';
+}).join("");
+
+// Equipment cards
+document.getElementById("eq").innerHTML = E.map(function(e, i) {
+  var muscles = e[1], types = e[2];
+  var muscleTags = muscles.map(function(m, j) {
+    return '<span class="muscle-tag ' + (types[j] === 'bantu' ? 'secondary' : '') + '">' +
+      (types[j] === 'utama' ? '🎯 ' : '') + m + '</span>';
+  }).join('');
+
+  return '<div class="eq-card"><div class="eq-top"><h3>' + e[0] + '</h3>' +
+    '<div class="fig"><svg class="an" data-i="' + i + '" viewBox="0 0 200 120" role="img" aria-label="Animasi gerakan ' + e[0] + '"></svg>' +
+    '<div class="hint">Ketuk gambar untuk jeda / lanjut</div></div>' +
+    '<div class="eq-info"><b>🏗️ Alatnya:</b> ' + X[i][5] + '</div>' +
+    '<div class="muscle-tags">' + muscleTags + '</div>' +
+    '<ol>' + e[3].map(function(s) { return '<li>' + s + '</li>'; }).join("") + '</ol>' +
+    '<div class="warn-box"><b>⚠️ Kesalahan umum:</b> ' + e[4] + '</div>' +
+    '</div></div>';
+}).join("");
+
+/* ═══════════════════════════════════════════
+   ANIMATION ENGINE
+   ═══════════════════════════════════════════ */
+var ALL = [].slice.call(document.querySelectorAll("svg.an"));
+var VIS = {};
+var RED = matchMedia("(prefers-reduced-motion:reduce)").matches;
+var T0 = performance.now();
+var SPD = 1;
+var SK = "#E3B08C", SH = "#4F73A3", CL = "var(--gym)", HT = "#E5484D";
+
+function ik(r, t, a, b, s) {
+  var dx = t[0] - r[0], dy = t[1] - r[1], d = Math.hypot(dx, dy) || 1;
+  var m = Math.min(d, a + b - .5), ux = dx / d, uy = dy / d;
+  var c = (a * a - b * b + m * m) / (2 * m);
+  var h = Math.sqrt(Math.max(a * a - c * c, 0));
+  return [[r[0] + ux * c - s * uy * h, r[1] + uy * c + s * ux * h], [r[0] + ux * m, r[1] + uy * m]];
+}
+
+function S(p, q, w, c, o) {
+  return '<path style="stroke:' + c + ';stroke-width:' + w + (o != null ? ';opacity:' + o : '') +
+    '" d="M' + p[0].toFixed(1) + ' ' + p[1].toFixed(1) + 'L' + q[0].toFixed(1) + ' ' + q[1].toFixed(1) + '"/>';
+}
+
+function lp(a, b, k) { return [a[0] + (b[0] - a[0]) * k, a[1] + (b[1] - a[1]) * k]; }
+
+function C(p, r, st) {
+  return '<circle cx="' + p[0].toFixed(1) + '" cy="' + p[1].toFixed(1) + '" r="' + r + '" style="' + st + '"/>';
+}
+
+function seg(p, q, w1, w2, c) {
+  var dx = q[0] - p[0], dy = q[1] - p[1], d = Math.hypot(dx, dy) || 1;
+  var nx = -dy / d, ny = dx / d, a = w1 / 2, b = w2 / 2, f = function(v) { return v.toFixed(1); };
+  return '<path style="fill:' + c + ';stroke:' + c + ';stroke-width:1;stroke-linejoin:round" d="M' +
+    f(p[0] + nx * a) + ' ' + f(p[1] + ny * a) + 'L' + f(q[0] + nx * b) + ' ' + f(q[1] + ny * b) + 'L' +
+    f(q[0] - nx * b) + ' ' + f(q[1] - ny * b) + 'L' + f(p[0] - nx * a) + ' ' + f(p[1] - ny * a) + 'Z"/>' +
+    C(p, a, 'fill:' + c + ';stroke:none') + C(q, b, 'fill:' + c + ';stroke:none');
+}
+
+function bod(sh, hp, kn, ft, el, hn) {
+  return seg(hp, kn, 12, 8.5, SK) + seg(hp, lp(hp, kn, .6), 12.4, 10, SH) +
+    seg(kn, ft, 7.5, 5, SK) +
+    '<ellipse cx="' + (ft[0] + 3).toFixed(1) + '" cy="' + (ft[1] + 1.5).toFixed(1) +
+    '" rx="6.5" ry="3" style="fill:#fff;stroke:#14263A;stroke-width:.8"/>' +
+    seg(sh, el, 7, 5.8, CL) + seg(el, hn, 5.4, 4, SK) + C(hn, 3, 'fill:' + SK + ';stroke:none');
+}
+
+function mu(Sg, m, g, fs) {
+  var s = Sg[m[1]], a = s[0], b = s[1], c = lp(a, b, m[2]);
+  var dx = b[0] - a[0], dy = b[1] - a[1], d = Math.hypot(dx, dy) || 1;
+  var nx = -dy / d, ny = dx / d, sd = (m[1] == 'T' ? m[5] : -m[5]) * fs;
+  var off = sd * m[4] * .28, k = m[6] == 'u' ? g : g * .6;
+  var ang = Math.atan2(dy, dx) * 180 / Math.PI;
+  return '<ellipse transform="translate(' + (c[0] + nx * off).toFixed(1) + ' ' + (c[1] + ny * off).toFixed(1) +
+    ') rotate(' + ang.toFixed(0) + ')" rx="' + m[3] / 2 + '" ry="' + (m[4] / 2 * (1 + .4 * k)).toFixed(1) +
+    '" style="fill:' + (k > .5 ? '#FF4D4D' : '#D9534F') + ';stroke:none;opacity:' + (.16 + .7 * k).toFixed(2) + '"/>';
+}
+
+function limbs(sh, hp, kn, ft, el, hd) {
+  return S(sh, el, 6.5, CL) + S(el, hd, 5.5, SK) + S(hp, kn, 9, SH) + S(kn, ft, 7, SK) + C(ft, 3.5, "fill:#fff;stroke:none");
+}
+
+function draw(sv, _) {
+  var i = +sv.dataset.i, z = Z[i], ms = ((performance.now() - T0) * SPD) % 4000;
+  var t, g, ph, e = z.e, u, fs = i == 7 ? -1 : 1;
+
+  if (ms < 1300) { u = ms / 1300; t = .5 - .5 * Math.cos(Math.PI * u); g = (e == 1 ? 1 : .25) * Math.sin(Math.PI * u); ph = 0; }
+  else if (ms < 1600) { t = 1; g = e == 1 ? .8 : .15; ph = 0; }
+  else if (ms < 3300) { u = (ms - 1600) / 1700; t = .5 + .5 * Math.cos(Math.PI * u); g = (e == 2 ? 1 : .25) * Math.sin(Math.PI * u); ph = 1; }
+  else { t = 0; g = .1; ph = 1; }
+
+  var PP = z.A.map(function(v, j) { return v + (z.B[j] - v) * t; });
+  var hd = [PP[0], PP[1]], sh = [PP[2], PP[3]], hp = [PP[4], PP[5]];
+  var lg = ik(hp, [PP[6], PP[7]], 24, 23, z.ks), kn = lg[0], ft = lg[1];
+  var ar = ik(sh, [PP[8], PP[9]], 15, 14, z.es), el = ar[0], hn = ar[1];
+
+  var o = '<rect class="f" x="0" y="108" width="200" height="12"/>' + z.eq +
+    '<g transform="translate(-4,-1)" opacity=".5">' + bod(sh, hp, kn, ft, el, hn) + '</g>' +
+    seg(hp, sh, 11, 16, CL) + C(hp, 5.5, 'fill:' + SH + ';stroke:none') + bod(sh, hp, kn, ft, el, hn);
+
+  var Sg = { T: [hp, sh], UA: [sh, el], TH: [hp, kn], SH: [kn, ft] };
+  MM[i].forEach(function(m) { o += mu(Sg, m, g, fs); });
+
+  o += seg(sh, lp(sh, hd, .75), 4.6, 4.6, SK) +
+    C([hd[0] - 1.5, hd[1] - 2], 7, 'fill:#2B2118;stroke:none') +
+    C([hd[0] + .8, hd[1] + .6], 6.6, 'fill:' + SK + ';stroke:none') +
+    (i == 7 ? '' : C([hd[0] + 7.6, hd[1] + 1.2], 1.6, 'fill:' + SK + ';stroke:none'));
+
+  if (z.o == 'db') o += C(hn, 6.5, 'fill:#3C4A5A;stroke:var(--ink);stroke-width:1.5') + C(hn, 2.5, 'fill:#9FB3C4;stroke:none');
+  if (z.o == 'cable') o += '<path class="c" d="M' + z.an[0] + ' ' + z.an[1] + 'L' + hn[0].toFixed(1) + ' ' + hn[1].toFixed(1) + '"/>' + C(hn, 3.5, 'fill:var(--run);stroke:var(--ink);stroke-width:1.5');
+  if (z.o == 'pad') o += C(ft, 5, 'fill:var(--run);stroke:var(--ink);stroke-width:1.5');
+  if (z.o == 'sled') {
+    var vx = ft[0] - hp[0], vy = ft[1] - hp[1], vl = Math.hypot(vx, vy) || 1;
+    vx /= vl; vy /= vl; var qx = ft[0] + vx * 3, qy = ft[1] + vy * 3;
+    o += S([qx + vy * 12, qy - vx * 12], [qx - vy * 12, qy + vx * 12], 5, 'var(--run)');
+  }
+
+  sv.innerHTML = o;
+  var l = sv.parentNode.querySelector('.ph'), k = ph + '-' + i;
+  if (l && l.dataset.k != k) { l.textContent = z.l[ph]; l.dataset.k = k; }
+}
+
+// Setup animations
+ALL.forEach(function(s) {
+  var d = document.createElement('div');
+  d.className = 'ph';
+  s.parentNode.insertBefore(d, s);
+  draw(s, 0);
+
+  s.parentNode.addEventListener("click", function() { this.classList.toggle("p"); });
+  new IntersectionObserver(function(en) { VIS[s.dataset.i] = en[0].isIntersecting; }).observe(s);
+
+  // Add muscle info after figure
+  var m = MM[+s.dataset.i];
+  var u = m.filter(function(x) { return x[6] == 'u'; }).map(function(x) { return x[0]; }).join(', ');
+  var b = m.filter(function(x) { return x[6] == 'b'; }).map(function(x) { return x[0]; }).join(', ');
+});
+
+if (!RED) {
+  requestAnimationFrame(function tick(ms) {
+    ALL.forEach(function(s) {
+      if (VIS[s.dataset.i] && !s.parentNode.classList.contains("p")) draw(s, 0);
+    });
+    requestAnimationFrame(tick);
+  });
+}
+
+/* ═══════════════════════════════════════════
+   SPEED CONTROL
+   ═══════════════════════════════════════════ */
+document.getElementById('speedBtn').onclick = function() {
+  SPD = SPD == 1 ? .4 : 1;
+  this.textContent = '⚡ Mode lambat: ' + (SPD == 1 ? 'mati' : 'nyala');
+};
+
+/* ═══════════════════════════════════════════
+   SCROLL INTERACTIONS
+   ═══════════════════════════════════════════ */
+
+// Scroll progress
+window.addEventListener('scroll', function() {
+  var h = document.documentElement.scrollHeight - window.innerHeight;
+  var pct = h > 0 ? (window.scrollY / h) * 100 : 0;
+  document.getElementById('scrollProgress').style.width = pct + '%';
+
+  // Nav shadow
+  document.getElementById('topNav').classList.toggle('scrolled', window.scrollY > 10);
+
+  // Back to top
+  document.getElementById('backToTop').classList.toggle('show', window.scrollY > 500);
+});
+
+// Back to top
+document.getElementById('backToTop').onclick = function() { window.scrollTo({ top: 0, behavior: 'smooth' }); };
+
+// Active nav link
+var sections = document.querySelectorAll('.section-header[id]');
+var navLinks = document.querySelectorAll('nav a');
+var navObserver = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) {
+      navLinks.forEach(function(a) { a.classList.remove('active'); });
+      var active = document.querySelector('nav a[href="#' + entry.target.id + '"]');
+      if (active) active.classList.add('active');
+    }
+  });
+}, { rootMargin: '-20% 0px -60% 0px' });
+sections.forEach(function(s) { navObserver.observe(s); });
+
+// Animate elements on scroll
+var animObserver = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.section-header, .card, .day, .eq-card').forEach(function(el) {
+  animObserver.observe(el);
+});
+
+/* ═══════════════════════════════════════════
+   THEME TOGGLE
+   ═══════════════════════════════════════════ */
+var themeBtn = document.getElementById('themeToggle');
+var savedTheme = localStorage.getItem('theme');
+if (savedTheme) document.documentElement.setAttribute('data-theme', savedTheme);
+updateThemeIcon();
+
+themeBtn.onclick = function() {
+  var current = document.documentElement.getAttribute('data-theme');
+  var isDark = current === 'dark' || (!current && matchMedia('(prefers-color-scheme:dark)').matches);
+  var newTheme = isDark ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', newTheme);
+  localStorage.setItem('theme', newTheme);
+  updateThemeIcon();
+};
+
+function updateThemeIcon() {
+  var theme = document.documentElement.getAttribute('data-theme');
+  var isDark = theme === 'dark' || (!theme && matchMedia('(prefers-color-scheme:dark)').matches);
+  themeBtn.textContent = isDark ? '☀️' : '🌙';
+}
+
+/* ═══════════════════════════════════════════
+   PARTICLES
+   ═══════════════════════════════════════════ */
+var particlesEl = document.getElementById('particles');
+for (var i = 0; i < 20; i++) {
+  var p = document.createElement('div');
+  p.className = 'particle';
+  p.style.left = Math.random() * 100 + '%';
+  p.style.top = Math.random() * 100 + '%';
+  p.style.animationDelay = Math.random() * 6 + 's';
+  p.style.animationDuration = (4 + Math.random() * 4) + 's';
+  p.style.width = p.style.height = (2 + Math.random() * 4) + 'px';
+  particlesEl.appendChild(p);
+}
+
+/* ═══════════════════════════════════════════
+   PWA INSTALL
+   ═══════════════════════════════════════════ */
+var deferredPrompt;
+window.addEventListener('beforeinstallprompt', function(e) {
+  e.preventDefault();
+  deferredPrompt = e;
+  document.getElementById('installBanner').classList.add('show');
+});
+
+document.getElementById('installBtn').onclick = function() {
+  if (deferredPrompt) {
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.then(function() { deferredPrompt = null; });
+  }
+  document.getElementById('installBanner').classList.remove('show');
+};
+
+document.getElementById('dismissInstall').onclick = function() {
+  document.getElementById('installBanner').classList.remove('show');
+};
+
+// Register service worker
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js').catch(function() {});
+}
+</script>
+</body>
+</html>
